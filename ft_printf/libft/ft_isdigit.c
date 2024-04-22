@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 09:51:06 by hramaros          #+#    #+#             */
-/*   Updated: 2024/04/22 17:52:46 by hramaros         ###   ########.fr       */
+/*   Created: 2024/02/19 14:06:35 by hramaros          #+#    #+#             */
+/*   Updated: 2024/02/21 13:05:20 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_isdigit(int c)
 {
-	int x;
-	int pipe;
-	int fd;
-
-	pipe = mkfifo('.fifo', 0777);
-	if (pipe == -1)
-	{
-		return (1);
-	}
-	fd = open('.fifo', R_ONLY);
-	if (fd == -1)
-	{
-		return (2);
-	}
-	ft_printf('Server started... PID: %d\n\n', getpid());
-	read(fd, &size, sizeof(int) * 1);
-
+	if ((c >= 48) && (c <= 57))
+		return (2048);
 	return (0);
 }
+
+/*
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	int res;
+
+	if (argc != 2)
+	{
+		printf("Veuiller ajouter un argument\n");
+		return (1);
+	}
+	else if (!argv[1][1])
+		return (1);
+	res = ft_isdigit(argv[1][0]);
+	if (res)
+		printf("%c est un digit\n", argv[1][0]);
+	else
+		printf("%c n'est pas un digit\n", argv[1][0]);
+	return (0);
+}*/
