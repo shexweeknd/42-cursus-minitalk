@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:06 by hramaros          #+#    #+#             */
-/*   Updated: 2024/04/24 06:59:43 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/04/24 07:06:28 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 	{
 		return (2);
 	}
-	// ft_printf("Server started... PID: %d\n\n", getpid());
+	ft_printf("Server started... PID: %d\n\n", getpid());
 	read(fd, &size, sizeof(int) * 1);
 
 	return (0);

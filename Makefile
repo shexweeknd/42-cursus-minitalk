@@ -1,4 +1,4 @@
-NAME = server
+NAME = server client
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -42,7 +42,7 @@ clean: $(OBJS)
 	@echo "$(RED)#Cleaned $(END) $(GARBAGE)"
 
 fclean: clean
-	@rm -rf $(NAME) */*.a
+	@rm -rf $(NAME)
 	@echo "$(RED)#Cleaned $(END) $(NAME)"
 
 re: fclean
