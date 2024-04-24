@@ -6,7 +6,11 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:13 by hramaros          #+#    #+#             */
-/*   Updated: 2024/04/22 17:52:43 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/04/24 07:04:54 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	main(int argc, char **argv)
+{
+	return (0);
+}

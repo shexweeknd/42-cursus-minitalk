@@ -2,7 +2,7 @@ NAME = server
 
 FLAGS = -Wall -Wextra -Werror
 
-GARBAGE = *.o */*.o *.gch */*.gch *.out */*.out
+GARBAGE = *.o */*.o *.gch */*.gch *.out */*.out *.a
 
 SRCS = server.c \
 		client.c
@@ -25,6 +25,13 @@ END = \033[0m
 
 all: $(OBJS)
 	@echo "$(GREEN)###$(BLUE) Exec all rule $(GREEN)###$(END)"
+	@cd ./ft_printf &&\
+	make all clean &&\
+	mv ./libftprintf.a ../ &&\
+	cd .. &&\
+	cc $(FLAGS) -g server.o -o server -L. -lftprintf
+	cc $(FLAGS) -g client.o -o client -L. -lftprintf
+	make clean
 
 debug: re
 	@echo "$(GREEN)###$(BLUE) Exec debug rule$(GREEN)###$(END)"
