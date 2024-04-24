@@ -6,12 +6,11 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 09:22:20 by hramaros          #+#    #+#             */
-/*   Updated: 2024/03/12 08:05:02 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:00:10 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "ft_printf.h"
-#include "ft_bonus.h"
+#include "ft_printf.h"
 
 static size_t	ft_isset(const char c, const char *set)
 {
@@ -27,157 +26,49 @@ static size_t	ft_isset(const char c, const char *set)
 	return (0);
 }
 
-static int	ft_flush(t_data *data)
+static int	ft_putformat(const char *str, va_list ap)
 {
-	// ft_flush print tout ce au'il y a dans le buffer et puis remet le buffer index a ainsi que le buffer a 0
-	if (*data->buffer)
-		data->printed += write(1, data->buffer, data->buffer_index);
-	ft_memset(data->buffer, 0, sizeof(char) * 4096);
-	data->buffer_index = 0;
-	return (data->printed);
-}
+	int		printed;
+	char	*set;
 
-static void	ft_alter_buffer(t_data *data, int c)
-{
-	if (data->buffer_index == 4096)
-		ft_flush(data);
-	else
-	{
-		data->buffer[data->buffer_index] = (char)c;
-		data->buffer_index += 1;
-	}
-	return ;
-}
-
-static void	ft_reset_format(t_format *format)
-{
-	format->minus = 0;
-	format->plus = 0;
-	format->space = 0;
-	format->zero = 0;
-	format->dash = 0;
-	format->width = 0;
-	format->width_char = ' ';
-	format->dot = 0;
-	format->precision = 0;
-	return ;
-}
-
-static void	ft_parse_on_buffer(t_data *data)
-{
-	if (*data->str == '%')
-		ft_alter_buffer(data, '%');
-	else if (*data->str == 'c')
-		ft_alter_c(data);
-	// TODO faire des flags de spdiuxX%
-	else if (*data->str == 's')
-		ft_alter_s(data);
-	else if (*data->str == 'p')
-		ft_alter_p(data);
-	else if (*data->str == 'd' || *data->str == 'i')
-		ft_alter_d(data);
-	else if (*data->str == 'u')
-		ft_alter_u(data);
-	else if (*data->str == 'x')
-		ft_alter_x(data); 
-	else
-		ft_alter_buffer(data, *data->str);
-	ft_reset_format(&(data->format));
-	return ;
-}
-
-static void	ft_get_format(t_data *data)
-{
-	// tant qu'on a pas trouve le specificateur, on itere
-	while (!ft_isset(*data->str, "cspdiuxX"))
-	{
-		// check flags [+- 0#]
-		if (*data->str == '-' && *++data->str)
-			data->format.minus = 1;
-		else if (*data->str == '+' && *++data->str)
-			data->format.plus = 1;
-		else if (*data->str == '0' && !data->format.dot && *++data->str)
-			data->format.zero = 1;
-		else if (*data->str == ' ' && *++data->str)
-			data->format.space = 1;
-		else if (*data->str == '#' && *++data->str)
-			data->format.dash = 1;
-		// check width
-		else if (ft_atoi(data->str) && !data->format.dot)
-		{
-			data->format.width = ft_atoi(data->str);
-			data->str += (ft_ullen(data->format.width));
-		}
-		// check precision
-		else if (*data->str == '.')
-		{
-			data->format.dot = 1;
-			data->format.precision = ft_atoi((data->str + 1));
-			data->str += (ft_ullen(data->format.precision));
-		}
-		else
-			data->str++;
-	}
-	ft_parse_on_buffer(data);
-	return ;
-}
-
-static void	ft_init_data(t_data *data, char *str)
-{
-	data->str = str;
-	data->buffer_index = 0;
-	data->printed = 0;
-	ft_reset_format(&(data->format));
-	return ;
+	set = "cspdiuxX%";
+	if (!ft_isset(*str, set))
+		return (0);
+	printed = 0;
+	if (*str == 'c')
+		printed += ft_putchar_i(va_arg(ap, int));
+	else if (*str == 's')
+		printed += ft_putstr(va_arg(ap, char *));
+	else if (*str == 'p')
+		printed += ft_put_addr(va_arg(ap, void *));
+	else if (*str == 'd' || *str == 'i')
+		printed += ft_putnbr_base(va_arg(ap, int), "0123456789");
+	else if (*str == 'u')
+		printed += ft_put_unsigned_nbr(va_arg(ap, unsigned int));
+	else if (*str == 'x')
+		printed += ft_putx(va_arg(ap, int), "0123456789abcdef");
+	else if (*str == 'X')
+		printed += ft_putx(va_arg(ap, int), "0123456789ABCDEF");
+	else if (*str == '%')
+		printed += write(1, "%", 1);
+	return (printed);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	t_data			data;
-	unsigned int	printed;
+	va_list	ap;
+	int		printed;
 
-	data.buffer = (char *)malloc(sizeof(char) * 4096);
-	if (!data.buffer)
-		return (-1);
-	va_start(data.ap, str);
-	ft_init_data(&data, str);
-	while (*data.str)
+	va_start(ap, str);
+	printed = 0;
+	while (*str)
 	{
-		if (*data.str == '%' && *++data.str != '\0')
-			ft_get_format(&data);
+		if (*str == '%')
+			printed += ft_putformat(++str, ap);
 		else
-			ft_parse_on_buffer(&data);
-		data.str++;
+			printed += write(1, str, 1);
+		str++;
 	}
-	printed = ft_flush(&data);
-	va_end(data.ap);
-	free(data.buffer);
+	va_end(ap);
 	return (printed);
 }
-
-// algorithm
-/*
-
-1 - create struct to store data
-	actual pointer
-	the ap
-	the chars written
-	the buffer
-	the buffer index
-	the format associated with the actual iteration in it
-
-2 - create a struct to store flags, width, and precision
-	0 for each flag is unset
-	1 for each flag is set
-	!! width flag must be different than zero
-	precision can be zero but must be seen after '.'
-
-3 - create a buffer that stores the char and its already printed value
-
-4 - store into the buffer until you see the % sign
-
-5 - parse the flags if incountered % sign
-
-6 - flush the buffer at the end of the day
-
-*/

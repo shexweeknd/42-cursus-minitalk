@@ -5,15 +5,12 @@ FLAGS = -Wall -Wextra -Werror
 GARBAGE = *.o */*.o *.gch */*.gch *.out */*.out
 
 SRCS = ft_printf.c \
-		ft_alter_c.c \
-		ft_alter_s.c \
-		ft_alter_p.c \
-		ft_alter_d.c \
-		ft_alter_u.c \
-		ft_alter_x.c \
-		ft_addchar_i.c \
-		ft_dlen.c \
-		ft_addnbr_base.c
+		ft_put_addr.c \
+		ft_putnbr_base.c \
+		ft_put_unsigned_nbr.c \
+		ft_putchar_i.c \
+		ft_putstr.c \
+		ft_putx.c \
 
 # Colors variables
 OBJS = $(SRCS:.c=.o)
@@ -29,7 +26,7 @@ END = \033[0m
 # Rules
 .c.o:
 	@echo "$(GREEN)###$(BLUE) Exec .c.o rule$(GREEN)###$(END)"
-	@cc -c -g $(SRCS) -I ./
+	@cc -c $(SRCS) -I ./
 
 all: $(OBJS)
 	@echo "$(GREEN)###$(BLUE) Exec all rule $(GREEN)###$(END)"
@@ -46,19 +43,8 @@ all: $(OBJS)
 
 debug: re
 	@echo "$(GREEN)###$(BLUE) Exec debug rule$(GREEN)###$(END)"
-	@cc $(FLAGS) -g main.c -L. -lftprintf && ./a.out | cat -e
-#	@cc $(FLAGS) -g main.c $(SRCS) && ./a.out | cat -e
-
-# bonus: $(SRCS) += $(OBJS)
-# bonus:
-# 	@echo "$(GREEN)#Added: $(END) $(BONUS)"
-# bonus: .c.o
-# 	@echo "$(GREEN)###$(BLUE) Exec Bonus rule$(GREEN)###$(END)"
-# 	@make re
-
-# bonus-debug: bonus
-# 	@echo "$(GREEN)###$(BLUE) Debugging Bonus Files$(GREEN)###$(END)"
-# 	@cc $(FLAGS) -g main.c $(SRCS) && ./a.out | cat -e
+#	@cc $(FLAGS) -g main.c -L. -lftprintf && ./a.out | cat -e
+	@cc $(FLAGS) -g main.c $(SRCS) && ./a.out | cat -e
 
 clean: $(OBJS)
 	@rm -rf $(OBJS) $(GARBAGE)
@@ -71,4 +57,4 @@ fclean: clean
 re: fclean
 	@make all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

@@ -58,7 +58,7 @@ MAINOBJ = $(MAINSRC:.c=.o)
 all: $(NAME)
 
 .c.o:
-	@cc -c -g $(FLAGS) $(SRC) $(BONUS) -I .
+	@cc -c $(FLAGS) $(SRC) $(BONUS) -I .
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
