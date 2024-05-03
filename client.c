@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:13 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/03 23:52:44 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/03 23:58:07 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ int	ft_send_char(const unsigned int server_pid, unsigned char c)
 int	ft_sendmessage(const unsigned int server_pid, const char *message)
 {
 	while (*message)
-		ft_send_char(server_pid, *message++);
-	ft_send_ending(server_pid);
-	return (0);
+		if (!ft_send_char(server_pid, *message++))
+			return (0);
+	if (!ft_send_ending(server_pid))
+		return (0);
+	return (1);
 }
 
 int	main(int argc, char **argv)

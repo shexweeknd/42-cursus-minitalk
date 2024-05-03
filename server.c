@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:06 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/03 23:52:53 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/03 23:55:53 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	sig_handler(int sig)
 			g_data.buffer[g_data.buffer_index++] = g_data.c;
 		}
 	}
+	if ((g_data.c == 0) && (g_data.buffer[0]))
+		ft_printf("message: %s\n", g_data.buffer);
 	return ;
 }
 
