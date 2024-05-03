@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:13 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/03 06:55:54 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/03 07:18:17 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ int	ft_send_char(const unsigned int server_pid, unsigned char c)
 	{
 		if (bit & c)
 		{
-			// envoi de signaux 1
 			if (kill(server_pid, SIGUSR1) == -1)
 				return (0);
 		}
 		else
 		{
-			// envoi de signaux 0
 			if (kill(server_pid, SIGUSR2) == -1)
 				return (0);
 		}
