@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:06 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/03 23:55:53 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/04 00:38:53 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,17 @@ int	ft_init_data(t_data *g_data)
 	return (1);
 }
 
+int	ft_flush_data(void)
+{
+	ft_printf("Message: %s\n", g_data.buffer);
+	if (!ft_init_data(&g_data))
+	{
+		ft_printf("Global Variable Error, leaving ...\n");
+		return (0);
+	}
+	return (1);
+}
+
 void	sig_handler(int sig)
 {
 	unsigned char	bit_mask;
@@ -40,24 +51,28 @@ void	sig_handler(int sig)
 	bit_mask = 0b10000000;
 	if (sig == SIGUSR1)
 	{
-		g_data.c = (g_data.c | (bit_mask >> g_data.bit_index));
-		if (g_data.bit_index++ >= 8)
+		g_data.c = (g_data.c | (bit_mask >> g_data.bit_index++));
+		if (g_data.bit_index == 8)
 		{
-			g_data.bit_index == 0;
+			g_data.bit_index = 0;
 			g_data.buffer[g_data.buffer_index++] = g_data.c;
+			if (!g_data.c)
+				ft_flush_data();
+			g_data.c = 0;
 		}
 	}
 	else if (sig == SIGUSR2)
 	{
 		g_data.bit_index++;
-		if (g_data.bit_index++ >= 8)
+		if (g_data.bit_index == 8)
 		{
-			g_data.bit_index == 0;
+			g_data.bit_index = 0;
 			g_data.buffer[g_data.buffer_index++] = g_data.c;
+			if (!g_data.c)
+				ft_flush_data();
+			g_data.c = 0;
 		}
 	}
-	if ((g_data.c == 0) && (g_data.buffer[0]))
-		ft_printf("message: %s\n", g_data.buffer);
 	return ;
 }
 
