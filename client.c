@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:13 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/03 23:58:07 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/04 06:50:14 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_send_ending(const unsigned int server_pid)
 	{
 		if (kill(server_pid, SIGUSR2) == -1)
 			return (0);
-		usleep(100);
+		usleep(50);
 	}
 	return (1);
 }
@@ -46,18 +46,25 @@ int	ft_send_char(const unsigned int server_pid, unsigned char c)
 				return (0);
 		}
 		bit >>= 1;
-		usleep(100);
+		usleep(50);
 	}
 	return (1);
 }
 
 int	ft_sendmessage(const unsigned int server_pid, const char *message)
 {
+	unsigned int	char_numbers;
+
+	char_numbers = 0;
 	while (*message)
+	{
 		if (!ft_send_char(server_pid, *message++))
 			return (0);
+		char_numbers++;
+	}
 	if (!ft_send_ending(server_pid))
 		return (0);
+	ft_printf("char numbers : %d\n", char_numbers);
 	return (1);
 }
 
