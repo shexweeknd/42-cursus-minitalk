@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:06 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/04 11:54:34 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/04 12:10:03 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	ft_alter_data(void)
 	g_data.buffer[g_data.buffer_index++] = g_data.c;
 	if (!g_data.c)
 	{
-		ft_printf("Message: %s\nNumber of chars + 1: %d\n\n", g_data.buffer,
-			g_data.buffer_index);
+		ft_printf("Message: %s\n\n", g_data.buffer);
 		if (!ft_init_data(&g_data))
 			ft_printf("Global Variable Error, leaving ...\n");
 	}
