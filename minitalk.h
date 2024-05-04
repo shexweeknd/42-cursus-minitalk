@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 07:19:36 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/03 07:20:30 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/04 12:31:00 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,11 @@ typedef struct s_data
 	char			c;
 	unsigned int	bit_index;
 }					t_data;
+
+typedef struct s_client_data
+{
+	pid_t			server_pid;
+	char			*buffer;
+}					t_client_data;
 
 #endif
