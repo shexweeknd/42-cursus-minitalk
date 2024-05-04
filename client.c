@@ -6,10 +6,12 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:13 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/04 06:50:14 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:59:06 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+#include "libft.h"
 #include <signal.h>
 #include <sys/types.h>
 #include <unistd.h>

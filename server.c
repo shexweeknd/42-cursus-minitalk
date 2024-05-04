@@ -6,10 +6,11 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:51:06 by hramaros          #+#    #+#             */
-/*   Updated: 2024/05/04 06:45:05 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:54:34 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "minitalk.h"
 #include <fcntl.h>
 #include <signal.h>
