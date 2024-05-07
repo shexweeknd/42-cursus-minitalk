@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:03:18 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/23 14:12:39 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:16:45 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,3 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)(--str));
 	return (0);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*ret;
-	char	*str;
-
-	str = "teste";
-	ret = ft_strchr(str, 1024);
-	printf("%s", ret);
-	return (0);
-}*/

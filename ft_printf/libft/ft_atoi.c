@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:27:31 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/23 14:14:39 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:13:45 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,3 @@ int	ft_atoi(const char *str)
 	ret *= sign;
 	return (ret);
 }
-
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
-{
-	int ret;
-
-	ret = ft_atoi("+54");
-	printf("%d\n", ret); // expected 0
-	return (0);
-}*/

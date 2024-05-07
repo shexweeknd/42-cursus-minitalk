@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:19:12 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/26 15:13:00 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:15:33 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	else
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	s1[] = "abcdef";
-	char	s2[] = "abc\375xx";
-	unsigned int n;
-
-	n = 5;
-	printf("%d\n", ft_strncmp(s1, s2, n));
-	return (0);
-}*/

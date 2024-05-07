@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:14:09 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/23 14:12:19 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:14:40 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char *s1 = "";
-	char *s2 = "test";
-	int ret;
-	int n = 4;
-
-	ret = ft_memcmp(s1, s2, n);
-	printf("%d\n", ret);
-	return (0);
-}*/

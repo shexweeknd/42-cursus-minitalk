@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:18:07 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/23 14:13:01 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:15:14 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ret[total] = '\0';
 	return (ret);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *s1 = "bonjour";
-	char *s2 = " 42";
-	char *ret;
-
-	ret = ft_strjoin(s1, s2);
-	printf("%s\n", ret);
-	free(ret);
-	return (0);
-}*/

@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:20:25 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/25 18:35:36 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:15:47 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,19 +92,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = create_trimmed(s1, start_index, end_index);
 	return (res);
 }
-
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
-{
-	char *str = " lo rem ipsum dolor lo ";
-	char *set = " ";
-	char *ret;
-
-	ret = ft_strtrim(str, set);
-	printf("%s\n", ret);
-	free(ret);
-	return (0);
-}*/

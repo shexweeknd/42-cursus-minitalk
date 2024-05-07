@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:17:54 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/26 15:06:10 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:14:24 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,3 @@ char	*ft_itoa(int n)
 		ft_fill_buffer(buffer, size, (unsigned long)tmp);
 	return (buffer);
 }
-
-/*
-#include "libft.h"
-#include <stdio.h>
-
-int	main(void)
-{
-	char *res;
-
-	res = ft_itoa(-2147483648);
-	printf("%s\n", res);
-	free(res);
-	return(0);
-}*/

@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 09:45:44 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/27 11:58:04 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:13:56 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,3 @@ void	*ft_calloc(size_t n, size_t size)
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-int	main(void)
-{
-	char	*res;
-
-	//res = ft_calloc(2, 2);
-	res = ft_calloc(-5, -5);
-	//res = ft_calloc(SIZE_MAX, SIZE_MAX);
-	free(res);
-	return (0);
-}
-*/

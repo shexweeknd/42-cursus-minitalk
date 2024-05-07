@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:23:47 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/25 18:34:50 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:15:00 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,26 +115,3 @@ char	**ft_split(char const *s, char c)
 	buffer2d[word_count] = NULL;
 	return (buffer2d);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char *str;
-	char **res;
-	int i;
-
-	str = "lorem ipsum dolor sit asmet";
-	res = ft_split(str, ' ');
-	i = 0;
-	while (res[i])
-	{
-		printf("%s\n", res[i]);
-		free(res[i]);
-		i++;
-	}
-	i = 0;
-	free(res);
-	return (0);
-}*/

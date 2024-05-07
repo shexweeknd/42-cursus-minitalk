@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:59:21 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/23 14:48:15 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:15:52 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ret[j] = '\0';
 	return (ret);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *s;
-	char *ret;
-	int start;
-	int len;
-
-	s = "lorem ipsum dolor is amet";
-	start = 7;
-	len = 10;
-	ret = ft_substr(s, start, len);
-	printf("%s\n", ret); // expected "m ipsum "
-	free(ret);
-	return (0);
-}*/

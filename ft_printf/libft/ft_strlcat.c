@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:57:02 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/27 11:55:17 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:16:33 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		return (s_len + size);
 	return (d_len + s_len);
 }
-/*
-#include "libft.h"
-#include <limits.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	unsigned int res;
-	char *dest;
-
-	dest = (char *)malloc(sizeof(*dest) * 15);
-	memset(dest, 'r', 15);
-	res = ft_strlcat(dest, "lorem ipsum dolor sit amet", 5);
-	printf("%u\n%s\n", res, dest);
-	free(dest);
-	return (0);
-}*/

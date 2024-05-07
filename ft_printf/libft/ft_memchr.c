@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:06:10 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/22 13:45:33 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:14:35 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,3 @@ void	*ft_memchr(const void *str, int c, size_t b_size)
 	}
 	return (ret);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char *s = "bonjour je fais parti de l'elite";
-	char *ret;
-	char c = 'e';
-	int n = 9;
-
-	ret = memchr(s, c, n);
-	printf("%s\n", ret);
-	return (0);
-}*/

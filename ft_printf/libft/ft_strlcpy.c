@@ -6,7 +6,7 @@
 /*   By: hramaros <hramaros@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:11:26 by hramaros          #+#    #+#             */
-/*   Updated: 2024/02/27 11:41:42 by hramaros         ###   ########.fr       */
+/*   Updated: 2024/05/07 07:15:25 by hramaros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,3 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	dest[i] = '\0';
 	return (count);
 }
-
-/*
-#include <stdio.h>
-#include <strings.h>
-
-int	main(void)
-{
-	char src[] = "Nuts Channel Is Back";
-	char dst[] = "I am the only one";
-
-	printf("%s\n", dst);
-	ft_strlcpy(dst, src, 5);
-	printf("%s\n", dst);
-	return (0);
-}*/
